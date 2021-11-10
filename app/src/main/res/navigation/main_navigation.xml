@@ -22,21 +22,5 @@
         <argument
             android:name="id"
             app:argType="string" />
-        <argument
-            android:name="name"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="bod"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="phone"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="photoUrl"
-            app:argType="string"
-            app:nullable="true" />
     </fragment>
 </navigation>

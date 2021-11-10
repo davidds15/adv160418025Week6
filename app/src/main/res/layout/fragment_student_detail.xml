@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <data>
+        <variable
+            name="student"
+            type="id.ac.ubaya.infor.advweek6.model.Student" />
+        <variable
+            name="listener"
+            type="id.ac.ubaya.infor.advweek6.view.ButtonNotificationClickListener" />
+    </data>
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.StudentDetailFragment">
@@ -16,6 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:scaleType="fitXY"
+            android:imageUrl="@{student.photoUrl}"
+            android:progressBar="@{progressBar2}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@android:string/emptyPhoneNumber"
+                android:text="@{student.phone}"
                 android:inputType="number|phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,6 +82,7 @@
                 android:id="@+id/txtBoD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{student.bod}"
                 android:hint="Birth of Date" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,6 +103,7 @@
                 android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{student.name}"
                 android:hint="Student Name" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -111,6 +125,7 @@
                 android:id="@+id/txtID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{student.id}"
                 android:hint="Student ID" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,5 +143,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
+        <Button
+            android:id="@+id/btnNotif"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="48dp"
+            android:text="Create Notification"
+            android:tag="@{student.name}"
+            android:onClick="@{listener::onButtonNotificationClick}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+</layout>
